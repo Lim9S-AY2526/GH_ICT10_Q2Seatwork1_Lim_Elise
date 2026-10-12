@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2Q Seatwork#1</title>
-  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
-  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nickname Atlas</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- PyScript CDN -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css"/>
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body style="background-color: #f2efe9; font-family: Georgia, serif; margin: 0; padding: 0; min-height: 100vh; position: relative;">
+<body>
 
-  <!-- Background Header -->
-  <div style="background-color: #0d3b36; color: #ffffff; text-align: center; padding: 50px 20px 80px 20px;">
-    <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; color: #a3c2ba; font-family: Arial, sans-serif; margin-bottom: 10px;">
-      Eleven Nations - One Archipelago of Names
-    </p>
-    <h1 style="font-size: 38px; font-weight: normal; margin-top: 0; margin-bottom: 12px;">
-      The <span style="color: #d4af37;"><i>Nickname</i></span> Atlas of Southeast Asia
-    </h1>
-    <p style="max-width: 480px; margin: auto; font-size: 13px; color: #b0c2bc; font-family: Arial, sans-serif;">
-      Every nation in this region carries a name earned through geography, history, and myth. Type a country below to uncover the title it has been given.
-    </p>
-  </div>
-
-  <!-- Container -->
-  <div style="width: 100%; max-width: 440px; margin: auto; margin-top: -45px; background-color: #ffffff; padding: 40px 35px; border-radius: 16px; border: 2px solid #d4af37; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); margin-bottom: 80px; box-sizing: border-box;">
-    
-    <p style="text-transform: uppercase; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; color: #777777; margin-bottom: 8px; font-family: Arial, sans-serif;">
-      Country Lookup
-    </p>
-
-    <h3 style="font-size: 20px; font-weight: normal; color: #111111; margin-top: 0; margin-bottom: 25px;">
-      Enter a Southeast Asian country
-    </h3>
-
-    <!-- User Input Form -->
-    <form style="margin: 0;">
-      <input type="text" id="country_input" placeholder="Vietnam, Philippines, Thailand..." 
-             style="width: 100%; padding: 10px 0; border: none; border-bottom: 2px solid #0d3b36; font-size: 15px; background-color: transparent; margin-bottom: 25px; font-family: Arial, sans-serif; outline: none; box-sizing: border-box;">
-
-      <input type="button" value="REVEAL NICKNAME" py-click="reveal_country_nickname"
-             style="width: 100%; background-color: #0d3b36; color: #ffffff; border: none; padding: 12px; border-radius: 6px; font-size: 11px; font-weight: bold; letter-spacing: 2px; cursor: pointer; font-family: Arial, sans-serif; box-sizing: border-box;">
-    </form>
-
-    <!-- Display Result Box -->
-    <div id="result" style="margin-top: 25px; font-size: 15px; color: #0d3b36; font-family: Georgia, serif; min-height: 24px;">
-      <i>Nickname output will appear here...</i>
+    <!-- Header Banner -->
+    <div class="hero-banner text-center">
+        <br><br>
+        <p class="hero-sub mb-2">Eleven Nations • One Archipelago of Names</p>
+        <h1 class="hero-title mb-3">The <span class="gold-accent">Nickname</span> Atlas of Southeast Asia</h1>
+        <p class="hero-description mx-auto">
+            Every nation in this region carries a name earned through geography, history, and myth. Select a country below to uncover its title.
+        </p>
     </div>
- 
 
-  </div>
+    <!-- Main Card Lookup Container -->
+    <div class="container atlas-card p-4 p-md-5">
+        <p class="card-label mb-2">Country Lookup</p>
+        <h2 class="card-heading mb-4">Select a Southeast Asian Country</h2>
 
-  <!-- Footer -->
-  <div style="background-color: #0d3b36; color: #82ab9e; text-align: center; padding: 15px; font-size: 11px; font-family: Arial, sans-serif; position: absolute; bottom: 0; width: 100%; box-sizing: border-box;">
-    Seatwork 1 - 2nd Quarter - 11 nations of Southeast Asia
-  </div>
+        <div class="mb-4">
+            <select id="select_country" class="form-select custom-select">
+                <option value="cambodia">Cambodia</option>
+                <option value="laos">Laos</option>
+                <option value="myanmar (burma)">Myanmar (Burma)</option>
+                <option value="thailand">Thailand</option>
+                <option value="vietnam">Vietnam</option>
+                <option value="brunei">Brunei</option>
+                <option value="indonesia">Indonesia</option>
+                <option value="malaysia">Malaysia</option>
+                <option value="philippines">Philippines</option>
+                <option value="singapore">Singapore</option>
+                <option value="timor-leste (east timor)">Timor-Leste (East Timor)</option>
+            </select>
+        </div>
 
-  <!-- PyScript Link -->
-  <script type="py" src="main.py"></script>
+        <button type="button" class="btn-reveal text-uppercase mb-4" py-click="reveal_nickname">
+            Reveal Nickname
+        </button>
 
+        <!-- Result Display Area -->
+        <div id="display1" class="result-box d-flex align-items-center justify-content-center"></div>
+    </div>
+
+    <!-- Footer Banner -->
+    <footer class="text-center py-3 position-absolute bottom-0 w-100">
+        Seatwork 1 • Second Quarter • 11 Nations of Southeast Asia
+    </footer>
+
+    <!-- PyScript Link -->
+    <script type="py" src="main.py"></script>
 </body>
 </html>
